@@ -43,7 +43,7 @@ function Createpage(){
 
         let json = await response.json();
 
-        navigate(`/room/${json.code}`, {state : {code: json.code, username: json.username}})
+        navigate(`/room/${json.code}`, {state : {code: json.code, username: json.username, settings: data.settings}})
     }
 
 
