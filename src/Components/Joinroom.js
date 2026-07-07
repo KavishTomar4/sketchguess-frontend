@@ -16,7 +16,7 @@ function Joinroom(){
         let roomcode = document.getElementById("room-code").value
         let data = {username: user.username, roomcode: roomcode}
 
-        let response = await fetch('/api/joinroom', {
+        let response = await fetch('https://sketchguesser-backend.onrender.com/api/joinroom', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
