@@ -100,15 +100,20 @@ function Room(){
             setRevealedWord(data.word)
             setShowScoreboard(true)
 
-           
+            if (scoreboardTimeoutRef.current) {
+                clearTimeout(scoreboardTimeoutRef.current)
+            }
+
             scoreboardTimeoutRef.current = setTimeout(() => {
                 setShowScoreboard(false)
+                scoreboardTimeoutRef.current = null
             }, 5000)
         })
 
         socket.on('game_over', (data)=>{
             if (scoreboardTimeoutRef.current) {
                 clearTimeout(scoreboardTimeoutRef.current)
+                scoreboardTimeoutRef.current = null
             }
 
             setRoundScores(data.scores)
@@ -144,11 +149,6 @@ function Room(){
             socket.off('lobby_update')
             socket.off('game_started')
             socket.off('word_hint')
-
-            socket.emit('leave_room', {
-                roomcode: roomid,
-                username: location.state.username
-            })
         }
 
     }, [])
