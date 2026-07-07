@@ -50,6 +50,8 @@ function Room(){
 
     let hasJoinedRef = useRef(false)
 
+    let scoreboardTimeoutRef = useRef(null)
+
     /*useEffect(() => {
         let secondInterval = setInterval(() => {
             setSeconds(prev => (prev > 0 ? prev - 1 : 0));
@@ -98,12 +100,17 @@ function Room(){
             setRevealedWord(data.word)
             setShowScoreboard(true)
 
-            setTimeout(() => {
+           
+            scoreboardTimeoutRef.current = setTimeout(() => {
                 setShowScoreboard(false)
             }, 5000)
         })
 
         socket.on('game_over', (data)=>{
+            if (scoreboardTimeoutRef.current) {
+                clearTimeout(scoreboardTimeoutRef.current)
+            }
+
             setRoundScores(data.scores)
             setGameOver(true)
             setShowScoreboard(true)
@@ -137,6 +144,11 @@ function Room(){
             socket.off('lobby_update')
             socket.off('game_started')
             socket.off('word_hint')
+
+            socket.emit('leave_room', {
+                roomcode: roomid,
+                username: location.state.username
+            })
         }
 
     }, [])
