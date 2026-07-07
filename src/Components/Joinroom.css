@@ -1,0 +1,57 @@
+
+
+#join-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#join-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 40px 36px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+#join-card h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+#room-code {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-size: 15px;
+    margin-bottom: 16px;
+    outline: none;
+    text-align: center;
+    letter-spacing: 1px;
+    transition: border-color 0.15s ease;
+}
+
+#room-code:focus {
+    border-color: #3e4ca3;
+}
+
+#join-btn {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 8px;
+    background-color: #3e4ca3;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 500;
+    transition: opacity 0.15s ease;
+}
+
+#join-btn:hover {
+    opacity: 0.85;
+}

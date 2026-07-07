@@ -1,0 +1,34 @@
+{
+  "animals": [
+    "cat", "dog", "elephant", "lion", "tiger", "giraffe", "penguin",
+    "kangaroo", "dolphin", "octopus", "spider", "butterfly", "eagle",
+    "shark", "rabbit", "monkey", "zebra", "snake", "owl", "crab",
+    "jellyfish", "peacock", "koala", "hedgehog", "flamingo"
+  ],
+  "objects": [
+    "chair", "umbrella", "guitar", "telephone", "castle", "rocket",
+    "lighthouse", "bicycle", "camera", "backpack", "clock", "candle",
+    "helicopter", "telescope", "microscope", "chandelier", "submarine",
+    "typewriter", "parachute", "compass", "anchor", "hourglass",
+    "wheelbarrow", "trampoline", "accordion"
+  ],
+  "actions": [
+    "running", "swimming", "dancing", "sleeping", "cooking", "painting",
+    "jumping", "singing", "reading", "climbing", "fishing", "laughing",
+    "crying", "skating", "boxing", "juggling", "typing", "flying",
+    "diving", "skiing", "surfing", "yawning", "sneezing", "whistling",
+    "stretching"
+  ],
+  "nature": [
+    "mountain", "volcano", "rainbow", "waterfall", "tornado", "avalanche",
+    "desert", "iceberg", "forest", "island", "cave", "hurricane",
+    "sunrise", "thunderstorm", "meadow", "canyon", "glacier", "oasis",
+    "coral reef", "geyser"
+  ],
+  "food": [
+    "pizza", "sandwich", "hamburger", "spaghetti", "sushi", "pancake",
+    "watermelon", "popcorn", "ice cream", "donut", "taco", "cupcake",
+    "pretzel", "waffle", "avocado", "pineapple", "hot dog", "burrito",
+    "croissant", "lollipop"
+  ]
+}

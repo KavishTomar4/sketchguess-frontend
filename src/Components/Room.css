@@ -1,0 +1,387 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    --paper: #faf7f0;         /* page background, like paper */
+    --panel: #ffffff;         /* cards / panels */
+    --ink: #2b2b2b;           /* main text color */
+    --muted: #8a8577;         /* secondary text */
+    --border: #e6e1d3;        /* soft borders */
+    --accent: #ff6b57;        /* coral marker - primary accent */
+    --accent-2: #3ec1c9;      /* teal marker - secondary accent */
+    --gold: #ffc53d;          /* rank #1 / "ready" highlight */
+    --radius: 14px;
+}
+
+/* ---------- base ---------- */
+
+#main-container,
+#lobby-overlay,
+#word-modal-overlay,
+#scoreboard-overlay,
+#top-info-bar {
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    box-sizing: border-box;
+}
+
+#main-container *,
+#lobby *,
+#word-modal *,
+#scoreboard * {
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--paper);
+}
+
+h2 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+}
+
+button {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 22px;
+    background: var(--accent);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.12s ease, background 0.12s ease;
+}
+
+button:hover {
+    background: #ff5238;
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* =======================================================
+   Top info bar — drawer name / timer / hint
+   ======================================================= */
+
+#top-info-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 20px;
+    margin: 16px 24px 0 24px;
+}
+
+.drawer-label {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+}
+
+.drawer-label::before {
+    content: "✏️ ";
+}
+
+.timer-label {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    background: var(--accent-2);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 999px;
+}
+
+.round-label {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--border);
+    padding: 4px 12px;
+    border-radius: 999px;
+}
+
+.hint-label {
+    margin-left: auto;
+    letter-spacing: 4px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+/* =======================================================
+   Main layout — members | canvas | chat
+   ======================================================= */
+
+#main-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px 24px;
+    align-items: flex-start;
+}
+
+/* ---------- members / scoreboard sidebar ---------- */
+
+#display-members {
+    width: 200px;
+    flex-shrink: 0;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#display-members p {
+    margin: 0;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: var(--paper);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* highlight whoever's currently in 1st place */
+#display-members p:first-child {
+    background: #fff6df;
+    border: 1px solid var(--gold);
+    font-weight: 600;
+}
+
+/* ---------- canvas ---------- */
+
+#canvas-container {
+    flex: 1;
+    background: var(--panel);
+    border: 2px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 480px;
+}
+
+/* ---------- chat ---------- */
+
+#chat-container {
+    width: 280px;
+    flex-shrink: 0;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    height: 520px;
+    overflow: hidden;
+}
+
+#chats {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 14px;
+}
+
+#chats-inner p {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+#chats-inner p b {
+    color: var(--accent-2);
+}
+
+.system-message {
+    text-align: center;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--muted);
+    margin: 6px 0 !important;
+}
+
+#text-input {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    border-top: 1px solid var(--border);
+}
+
+#message-field {
+    flex: 1;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+}
+
+#message-field:focus {
+    border-color: var(--accent-2);
+}
+
+#text-input button {
+    padding: 8px 18px;
+}
+
+/* =======================================================
+   Modals — shared overlay look (word choice / scoreboard / lobby)
+   ======================================================= */
+
+#word-modal-overlay,
+#scoreboard-overlay,
+#lobby-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(43, 43, 43, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.15s ease-out;
+}
+
+#word-modal,
+#scoreboard,
+#lobby {
+    background: var(--panel);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    min-width: 280px;
+    max-width: 90vw;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* ---------- word choice modal ---------- */
+
+#word-options {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#word-options button {
+    background: var(--accent-2);
+}
+
+#word-options button:hover {
+    background: #35aab1;
+}
+
+/* ---------- scoreboard modal ---------- */
+
+#scoreboard p {
+    color: var(--muted);
+    margin-bottom: 16px;
+}
+
+#scoreboard ul,
+#lobby ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+#scoreboard li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+}
+
+#scoreboard li:last-child {
+    border-bottom: none;
+}
+
+#scoreboard li span:last-child {
+    font-weight: 600;
+    color: var(--accent);
+}
+
+/* ---------- lobby / waiting room ---------- */
+
+#lobby {
+    min-width: 320px;
+}
+
+#lobby > p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+#room-code-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 8px 14px;
+    margin-bottom: 16px;
+}
+
+#room-code-box span {
+    font-size: 14px;
+}
+
+#room-code-box b {
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 2px;
+    color: var(--accent);
+}
+
+#room-code-box button {
+    padding: 6px 16px;
+    background: var(--accent-2);
+    font-size: 13px;
+}
+
+#room-code-box button:hover {
+    background: #35aab1;
+}
+
+#lobby li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+}
+
+#lobby li:last-child {
+    border-bottom: none;
+}
+
+/* "Ready" / "Not Ready" text color */
+#lobby li span:last-child {
+    font-weight: 600;
+    font-size: 13px;
+}
+
+#lobby button {
+    margin-top: 18px;
+}

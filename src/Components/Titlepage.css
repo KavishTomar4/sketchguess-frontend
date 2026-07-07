@@ -1,0 +1,69 @@
+#title-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#title-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 40px 36px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+#title-card h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin-bottom: 20px;
+}
+
+#username-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+#username-input:focus {
+    border-color: #3e4ca3;
+}
+
+#title-card .button-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#create-room, #join-room {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: opacity 0.15s ease;
+}
+
+#create-room {
+    background-color: #3e4ca3;
+    color: #FFFFFF;
+}
+
+#join-room {
+    background-color: #FFFFFF;
+    color: #3e4ca3;
+    border: 1px solid #3e4ca3;
+}
+
+#create-room:hover, #join-room:hover {
+    opacity: 0.85;
+}

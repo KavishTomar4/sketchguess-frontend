@@ -1,0 +1,66 @@
+
+#create-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#create-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 40px 36px;
+    width: 360px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+#create-card h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.setting-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.setting-field label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #4B5563;
+    margin-bottom: 6px;
+}
+
+.setting-field input {
+    padding: 9px 12px;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.setting-field input:focus {
+    border-color: #3e4ca3;
+}
+
+#sbt-btn {
+    width: 100%;
+    padding: 11px 0;
+    margin-top: 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: #3e4ca3;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 500;
+    transition: opacity 0.15s ease;
+}
+
+#sbt-btn:hover {
+    opacity: 0.85;
+}
